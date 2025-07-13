@@ -6,7 +6,7 @@ echo $PATH
 
 # install claat in functions dir
 
-GOBIN=$(pwd)/functions go install github.com/sfc-gh-annafilippova/tools/claat@latest
+GOBIN=$(pwd)/functions go install github.com/googlecodelabs/tools/claat@latest
 
 echo "Check install in correct directory..."
 echo $(ls /opt/build/repo/site/functions)
