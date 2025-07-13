@@ -13,7 +13,7 @@ const spawn = childprocess.spawn;
 //   callback - an async task callback function
 //   prefix - prefix for codelab-elements
 //
-exports.run = (cwd, cmd, env, fmt, ga, o, prefix, args, callback) => {
+exports.run = (cwd, cmd, env, fmt, o, prefix, args, callback) => {
   
   // replace before production deploy
   // args.unshift(cmd, '-e', env, '-f', fmt, '-ga', ga, '-o', o, '-prefix', prefix);
