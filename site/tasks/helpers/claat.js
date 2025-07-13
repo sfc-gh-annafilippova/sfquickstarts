@@ -16,7 +16,7 @@ const spawn = childprocess.spawn;
 exports.run = (cwd, cmd, env, fmt, ga, o, prefix, args, callback) => {
   args.unshift(cmd, '-e', env, '-f', fmt, '-ga', ga, '-o', o, '-prefix', prefix);
 
-  console.log('Args...', process.cwd())
+  console.log('Args...', process.cwd(), process.env )
   
   const proc = spawn('claat', args, { stdio: 'inherit', cwd: cwd, env: process.env, shell: true });
 
