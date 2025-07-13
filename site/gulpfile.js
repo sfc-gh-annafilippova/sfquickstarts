@@ -69,7 +69,7 @@ const CODELABS_BUILD_DIR = args.codelabsDir || 'sfguides/dist';
 // CODELABS_SRC_DIR is the directory where the actual codelabs exist on disk.
 // Despite being a constant, this can be overridden with the --codelabs-dir
 // flag.
-const CODELABS_SRC_DIR = args.codelabsSrcDir || 'sfguides/src';
+const CODELABS_SRC_DIR = args.codelabsSrcDir || './sfguides/src';
 
 // CODELABS_ENVIRONMENT is the environment for which to build codelabs.
 const CODELABS_ENVIRONMENT = args.codelabsEnv || 'web';
