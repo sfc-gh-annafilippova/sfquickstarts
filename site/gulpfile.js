@@ -142,10 +142,10 @@ gulp.task('export:codelabs', (callback) => {
 
   if (source !== undefined) {
     const sources = Array.isArray(source) ? source : [source];
-    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
+    claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
   } else {
     const codelabIds = collectCodelabs().map((c) => { return c.id });
-    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
+    claat.run(CODELABS_SRC_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
   }
   
 });
