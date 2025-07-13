@@ -144,8 +144,8 @@ gulp.task('export:codelabs', (callback) => {
     const sources = Array.isArray(source) ? source : [source];
     claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
   } else {
-    const codelabIds = collectCodelabs().map((c) => { return c.id });
-    claat.run(CODELABS_SRC_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
+    const sources = ["[^_]*/*.md"]; //export all markdown files in the src directory, except _imports
+    claat.run(CODELABS_SRC_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
   }
   
 });
