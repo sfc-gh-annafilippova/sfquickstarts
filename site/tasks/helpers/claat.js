@@ -14,9 +14,7 @@ const spawn = childprocess.spawn;
 //   prefix - prefix for codelab-elements
 //
 exports.run = (cwd, cmd, env, fmt, ga, o, prefix, args, callback) => {
-  
   args.unshift(cmd, '-e', env, '-f', fmt, '-ga', ga, '-o', o, '-prefix', prefix);
-    
   const proc = spawn('claat', args, { stdio: 'inherit', cwd: cwd, env: process.env, shell: true });
 
   proc.on('close', (e) => {
