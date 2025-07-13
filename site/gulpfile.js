@@ -136,6 +136,8 @@ gulp.task('copy:codelabs', () => {
 // export:codelabs exports the codelabs
 gulp.task('export:codelabs', (callback) => {
 
+  const source = args.source;
+
   console.log('Printing source...', source)
 
   if (source !== undefined) {
