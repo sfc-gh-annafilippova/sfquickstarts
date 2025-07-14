@@ -69,7 +69,7 @@ const CODELABS_BUILD_DIR = args.codelabsDir || 'sfguides/dist';
 // CODELABS_SRC_DIR is the directory where the actual codelabs exist on disk.
 // Despite being a constant, this can be overridden with the --codelabs-dir
 // flag.
-const CODELABS_SRC_DIR = args.codelabsSrcDir || 'sfguides/src';
+const CODELABS_SRC_DIR = args.codelabsSrcDir || './sfguides/src';
 
 // CODELABS_ENVIRONMENT is the environment for which to build codelabs.
 const CODELABS_ENVIRONMENT = args.codelabsEnv || 'web';
@@ -135,17 +135,27 @@ gulp.task('copy:codelabs', () => {
 
 // export:codelabs exports the codelabs
 gulp.task('export:codelabs', (callback) => {
+
   const source = args.source;
+  
+  console.log('Source dir...', CODELABS_SRC_DIR)
+  console.log('Codelabs env...', CODELABS_ENVIRONMENT)
+  console.log('Build dir', CODELABS_BUILD_DIR)
+
 
   if (source !== undefined) {
+    
     const sources = Array.isArray(source) ? source : [source];
     // claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, "../../"+CODELABS_BUILD_DIR, sources, callback);
     claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, "../../" + CODELABS_BUILD_DIR, CODELABS_ELEMENTS_PREFIX, sources, callback);
+
   } else {
+
     const sources = ["[^_]*/*.md"]; //export all markdown files in the src directory, except _imports
     // claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, "../../"+CODELABS_BUILD_DIR, sources, callback);
-    claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, "../../" + CODELABS_BUILD_DIR, CODELABS_ELEMENTS_PREFIX, sources, callback);
+    claat.run(CODELABS_SRC_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, CODELABS_BUILD_DIR, CODELABS_ELEMENTS_PREFIX, sources, callback);
   }
+  
 });
 
 
